@@ -111,7 +111,6 @@ def crawler(threadName,q):
                            "salary": salary,
                            "city": city,
                            "type": type}
-                    csvall=[job_and_company[0],job_and_company[1],salary,city,type]
 
                     # get the background and people
                     for each in range(0, 5):

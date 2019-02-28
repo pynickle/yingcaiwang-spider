@@ -8,11 +8,7 @@ MIT license
 import requests
 from bs4 import BeautifulSoup
 import time
-from pymongo import MongoClient
 import re
-import pymysql
-import csv
-import numpy as np
 import class_connect
 import threading
 import queue as Queue

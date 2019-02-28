@@ -67,12 +67,8 @@ for i in range(1, 208):
             # get the background and people
             if each == 3:
                 all['background'] = the_final_info
-                back = the_final_info
-                csvall.append(the_final_info)
             if each == 4:
                 all['people'] = the_final_info
-                peo = the_final_info
-                csvall.append(the_final_info)
 
         # insert into mongodb and mysql
         collection.insert_one(all)

@@ -24,7 +24,7 @@ class spider:
 
     # connect the mysql and remove all
     def connect_to_mysql(self):
-        conn = pymysql.connect(host="localhost", user="root", passwd="nick2005", db="scraping", charset='utf8')
+        conn = pymysql.connect(host=self.host, user=self.user, passwd=self.passwd, db=self.db, charset=self.charset)
         cur = conn.cursor()
         cur.execute('truncate table yingcaiwang;')
         return cur, conn

@@ -22,9 +22,6 @@ for i in range(1,208):
 a = class_connect.spider()
 collection = a.connect_to_mongodb()
 cur, conn = a.connect_to_mysql()
-a.get_data(collection)
-a.get_data(cur)
-a.get_data(conn)
 
 #a class for thread
 class myThread(threading.Thread):
@@ -61,7 +58,6 @@ def crawler(threadName,link_range):
         top_list = soup.find_all('div', class_="top-area")
         job_info = soup.find_all('div', class_='job-info')
         type_list = soup.find_all('span', class_='industry-name')
-        time_list = soup.find_all('span', class_='slant')
 
         # every information for recruit
         for x in range(len(top_list)):
@@ -74,7 +70,6 @@ def crawler(threadName,link_range):
             job_information = job_info[x].text.strip()
             city_to_people = job_information.split('\n')
             type = type_list[x].text.strip()
-            time_add = time_list[x].text.strip()
 
             # the dictionary for mongodb and the list for csv
             all = {"job": job_and_company[0],

@@ -74,9 +74,8 @@ def crawler(threadName,q):
     while True:
         try:
             # get the url
-            url = r.lpop('imformation')
+            url = r.rpop('imformation')
             url = url.decode('ascii')
-            print(url)
             if url==None:
                 return
 
@@ -124,8 +123,10 @@ def crawler(threadName,q):
                         # get the background and people
                         if each == 3:
                             all['background'] = the_final_info
+                            back=the_final_info
                         if each == 4:
                             all['people'] = the_final_info
+                            peo=the_final_info
 
                     #insert into mongodb and mysql
                     collection.insert_one(all)

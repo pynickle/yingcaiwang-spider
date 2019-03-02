@@ -1,6 +1,6 @@
 '''
 author:nick
-date:2019/3/1
+date:2019/2/21
 MIT license
 '''
 
@@ -74,7 +74,7 @@ def crawler(threadName,q):
     while True:
         try:
             # get the url
-            url = r.rpop('imformation')
+            url = r.lpop('imformation')
             url = url.decode('ascii')
             if url==None:
                 return
@@ -138,7 +138,7 @@ def crawler(threadName,q):
                 k=re.search('P(.*)/',url).group(1)
 
                 #rest for 3 seconds every 5 pages
-                if i % 5 == 0:
+                if int(k) % 5 == 0:
                     print(threadName+" : 第%s页爬取完毕，休息三秒" % (k))
                     print('the %s page is finished,rest for three seconds' % (k))
                     time.sleep(3)

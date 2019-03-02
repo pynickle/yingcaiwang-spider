@@ -1,6 +1,6 @@
 '''
 author:nick
-date:2019/3/1
+date:2019/2/21
 MIT license
 '''
 
@@ -12,9 +12,6 @@ import re
 import class_connect
 import threading
 import queue as Queue
-from redis import Redis
-
-count=1
 
 #get the link
 link_list=[]
@@ -112,9 +109,10 @@ def crawler(threadName,q):
             "INSERT INTO yingcaiwang(job,company,salary,city,type,background,people) VALUES(%s,%s,%s,%s,%s,%s,%s);",
             (job_and_company[0], job_and_company[1], salary, city, type, back, peo))
 
-    k=re.search('P(.*)/',url).group(1)
+    k=re.search('P(.*)/',url)
+    k=k.group(1)
     #rest for 3 seconds every 5 pages
-    if i % 5 == 0:
+    if int(k)%5==0:
         print(threadName+" : 第%s页爬取完毕，休息三秒" % (k))
         print('the %s page is finished,rest for three seconds' % (k))
         time.sleep(3)

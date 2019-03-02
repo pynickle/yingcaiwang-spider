@@ -3,7 +3,6 @@ import pymysql
 
 # a class for connect
 class spider:
-    
     # some things for mongodb and mysql
     def __init__(self, data=''):
         self.host = 'localhost'
